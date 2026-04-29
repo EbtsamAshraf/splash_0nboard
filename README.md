@@ -1,16 +1,19 @@
-# splash_0nboard
+# StepAgain - Clinical Directory UI 🏥
 
-A new Flutter project.
+A pixel-perfect Flutter implementation for a medical center administration system. This project focuses on clean UI design and smooth user flow.
 
-## Getting Started
+## ✨ Features
+* **Member Management:** Add new staff with detailed validation.
+* **Success Feedback:** Professional confirmation screens after data entry.
+* **Staff Directory:** Clean list view to manage doctors and technicians.
 
-This project is a starting point for a Flutter application.
+## 🛠️ Tech Stack
+* **Framework:** Flutter
+* **Language:** Dart
+* **State Management:** GetX
+* **Architecture:** Clean Architecture
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚀 How to Run
+1. Clone the repo: `git clone https://github.com/EbtsamAshraf/splash_Onboard.git`
+2. Install dependencies: `flutter pub get`
+3. Run the app: `flutter run`
