@@ -26,7 +26,7 @@ class OnboardingPage extends StatelessWidget {
             Align(
               alignment: Alignment.topLeft,
               child: Image.asset(
-                "assets/image/splash.png",
+                "assets/image/logo.png",
                 width: 100,
                 height: 100,
                 fit: BoxFit.contain,

@@ -11,7 +11,29 @@ class RegisterController extends GetxController {
   void signUpWithEmail() {
     Get.toNamed(AppRoutes.completeProfile);
   }
+
   void signUpWithGoogle() => print("Google Auth");
   void signUpWithApple() => print("Apple Auth");
   void goToLogin() => Get.toNamed('/login');
+}
+
+class RegisterBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut<RegisterController>(() => RegisterController());
+  }
+}
+
+class CompleteProfileController extends GetxController {
+  void continueToNextStep() {
+    print("Saving profile and moving to next step...");
+    // Get.toNamed('/next_page');
+  }
+}
+
+class CompleteProfileBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut<RegisterController>(() => RegisterController());
+  }
 }

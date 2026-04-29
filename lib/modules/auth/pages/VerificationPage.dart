@@ -3,10 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../../../core/them/app_colors.dart';
 import '../controllar/verificationcontroller.dart';
-import '../widgets/OtpInputField.dart';
 import '../widgets/widgets_verifiction/ResendTimerSection.dart';
 import '../widgets/widgets_verifiction/Verificationicon.dart';
-import '../widgets/widgets_verifiction/fotter_terms.dart';
 
 class VerificationPage extends StatelessWidget {
   const VerificationPage({super.key});

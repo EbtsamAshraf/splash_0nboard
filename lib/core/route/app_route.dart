@@ -1,54 +1,58 @@
 import 'package:get/get.dart';
 import 'package:splash_0nboard/modules/auth/pages/login_page.dart';
+import 'package:splash_0nboard/modules/sing_up/view/role_view.dart';
 import '../../modules/auth/pages/VerificationPage.dart';
-import '../../modules/auth/pages/forget_password_page.dart';
-import '../../modules/create_new_password/controllar/CreatePasswordBinding.dart';
+import '../../modules/create_new_password/forget_password_page.dart';
+import '../../modules/create_new_password/controllar/CreatePasswordController.dart';
 import '../../modules/create_new_password/view/CreatePasswordView.dart';
 import '../../modules/create_new_password/view/SuccessPasswordView.dart';
-import '../../modules/register/controllar/RegisterBinding.dart';
-import '../../modules/register/controllar/complete_profile_binding.dart';
-import '../../modules/register/view/CompleteProfileView.dart';
-import '../../modules/register/view/LoadingDashboardView.dart';
-import '../../modules/register/view/ProfessionalDetailsView.dart';
+import '../../modules/onboarding/onboarding_controller.dart';
+import '../../modules/register/controllar/RegisterController.dart';
 import '../../modules/register/view/register_view.dart';
+import '../../modules/sing_up/view/CompleteProfileView.dart';
+import '../../modules/sing_up/view/ProfessionalDetailsView.dart';
 import '../../modules/splash/pages/splash_screen.dart';
 import '../../modules/onboarding/pages/onboarding_screen.dart';
-import '../../modules/auth/pages/roleselectionscreen.dart';
 
 class AppRoutes {
   static const splash = "/splash";
   static const onboarding = "/onboarding";
-  static const roleSelection = "/roleSelection";
+  static const completeProfile = "/completeProfile";
+
   static const login = "/login";
   static const forgetPassword = "/forgetPassword";
   static const verificationCode = "/verificationCode";
   static const createNewPassword = "/createNewPassword";
   static const successPassword = "/successPassword";
   static const register = "/register";
-  static const completeProfile = "/completeProfile";
   static const professionalDetails = "/professionalDetails";
   static const loadingDashboard = "/loadingDashboard";
-
-
-
-
-
-
-
-
+  static const signUpChoice = "/sign_up_choice";
 
   static final routes = [
     GetPage(name: splash, page: () => const SplashScreen()),
 
-    GetPage(name: onboarding, page: () => OnboardingScreen()),
-
-    GetPage(name: roleSelection, page: () => const RoleSelectionScreen()),
-
+    GetPage(
+      name: onboarding,
+      page: () => OnboardingScreen(),
+      binding: BindingsBuilder(() {
+        Get.lazyPut<OnboardingController>(() => OnboardingController());
+      }),
+    ),
+    GetPage(
+      name: "/professionalDetails",
+      page: () => const ProfessionalDetailsView(),
+    ),
     GetPage(name: login, page: () => LoginPage()),
 
     GetPage(name: forgetPassword, page: () => ForgetPasswordPage()),
 
     GetPage(name: AppRoutes.verificationCode, page: () => VerificationPage()),
+    GetPage(
+      name: completeProfile,
+      page: () => const CompleteProfileView(),
+      binding: CompleteProfileBinding(),
+    ),
 
     GetPage(
       name: AppRoutes.createNewPassword,
@@ -66,24 +70,18 @@ class AppRoutes {
       page: () => const RegisterView(),
       binding: RegisterBinding(),
     ),
+    GetPage(name: AppRoutes.signUpChoice, page: () => RoleView()),
 
-    GetPage(
-      name: AppRoutes.completeProfile,
-      page: () =>  CompleteProfileView(),
-    ),
+    //GetPage(name: AppRoutes.completeProfile, page: () => CompleteProfileView()),
+    //GetPage(
+    //  name: AppRoutes.professionalDetails,
+    // page: () => ProfessionalDetailsView(),
+    // binding: CompleteProfileBinding(),
+    //  ),
 
-
-      GetPage(
-        name: AppRoutes.professionalDetails,
-        page: () =>  ProfessionalDetailsView(),
-      // binding: CompleteProfileBinding(),
-      ),
-
-    GetPage(
-      name: AppRoutes.loadingDashboard,
-      page: () =>  const LoadingDashboardView(),
-    ),
-
-
+    // GetPage(
+    //  name: AppRoutes.loadingDashboard,
+    //  page: () => const LoadingDashboardView(),
+    //   ),
   ];
 }

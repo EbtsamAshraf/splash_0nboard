@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../core/them/app_colors.dart';
 import '../controllar/CreatePasswordController.dart';
-import '../widgets/PasswordInputField.dart';
-import '../widgets/RequirementText.dart';
 import '../widgets/StrengthIndicator.dart';
+import '../widgets/password_widgets.dart';
 
 class CreatePasswordView extends GetView<CreatePasswordController> {
   const CreatePasswordView({super.key});
@@ -38,12 +37,20 @@ class CreatePasswordView extends GetView<CreatePasswordController> {
               height: 56,
               width: 56,
               decoration: BoxDecoration(
-                color: Colors.blue[50],
                 borderRadius: BorderRadius.circular(16),
+                gradient: const LinearGradient(
+                  colors: [
+                    AppColor.greenDark,
+                    AppColor.greenLight,
+                    AppColor.beige,
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
               ),
               child: const Icon(
-                Icons.history,
-                color: AppColor.blueColor,
+                Icons.lock_reset_rounded, // أيقونة أنسب لاستعادة كلمة السر
+                color: Colors.white,
                 size: 28,
               ),
             ),
@@ -53,14 +60,14 @@ class CreatePasswordView extends GetView<CreatePasswordController> {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: AppColor.fontColor,
+                color: Color(0xff1A2530), // لون داكن للنص الرئيسي
               ),
             ),
             const SizedBox(height: 12),
             Text(
               "Your new password must be unique to your medical account and different from your previous passwords for enhanced safety.",
               style: TextStyle(
-                color: AppColor.greyColor,
+                color: AppColor.textgreen,
                 fontSize: 14,
                 height: 1.5,
               ),
@@ -79,15 +86,15 @@ class CreatePasswordView extends GetView<CreatePasswordController> {
             const SizedBox(height: 8),
             Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.verified_user_outlined,
                   size: 16,
-                  color: AppColor.blueColor,
+                  color: AppColor.iconyellow,
                 ),
                 const SizedBox(width: 6),
                 Text(
                   "Medical grade encryption applied",
-                  style: TextStyle(color: AppColor.greColor, fontSize: 12),
+                  style: TextStyle(color: AppColor.textgreen, fontSize: 12),
                 ),
               ],
             ),
@@ -100,20 +107,41 @@ class CreatePasswordView extends GetView<CreatePasswordController> {
             ),
 
             const SizedBox(height: 24),
-            const RequirementText(text: "At least 8 characters"),
-            const RequirementText(text: "Includes a symbol (@#\$%)"),
+            RequirementText(text: "At least 8 characters"),
+            RequirementText(text: "Includes a symbol (@#\$)"),
 
             const SizedBox(height: 40),
-            SizedBox(
+
+            Container(
               width: double.infinity,
               height: 56,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                gradient: const LinearGradient(
+                  colors: [
+                    AppColor.greenDark,
+                    AppColor.greenLight,
+                    AppColor.beige,
+                  ],
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: AppColor.greenDark.withOpacity(0.2),
+                    blurRadius: 10,
+                    offset: const Offset(0, 4),
+                  ),
+                ],
+              ),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xff3b6ef5),
+                  backgroundColor: Colors.transparent,
+                  shadowColor: Colors.transparent,
+                  elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  elevation: 0,
                 ),
                 onPressed: () => controller.saveNewPassword(),
                 child: const Row(
@@ -124,15 +152,11 @@ class CreatePasswordView extends GetView<CreatePasswordController> {
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColor.whitColor,
+                        color: Colors.white,
                       ),
                     ),
                     SizedBox(width: 10),
-                    Icon(
-                      Icons.arrow_forward,
-                      color: AppColor.whitColor,
-                      size: 20,
-                    ),
+                    Icon(Icons.arrow_forward, color: Colors.white, size: 20),
                   ],
                 ),
               ),
@@ -141,7 +165,7 @@ class CreatePasswordView extends GetView<CreatePasswordController> {
             const Center(
               child: Text(
                 "Protected by 256-bit HIPAA compliance",
-                style: TextStyle(color: AppColor.greyColor, fontSize: 11),
+                style: TextStyle(color: AppColor.textgreen, fontSize: 11),
               ),
             ),
           ],

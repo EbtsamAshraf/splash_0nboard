@@ -3,9 +3,8 @@ import 'package:get/get.dart';
 
 import '../../../core/route/app_route.dart';
 
-import '../../auth/controllar/onboarding_controller.dart';
-import '../widgets/onboarding_button.dart';
-import '../widgets/onboarding_indicator.dart';
+import '../onboarding_controller.dart';
+import '../widgets/onboarding_widget.dart';
 import 'onboarding_model.dart';
 import '../../../../core/them/app_colors.dart';
 import 'onbarding_page.dart';
@@ -47,18 +46,15 @@ class OnboardingScreen extends StatelessWidget {
             const SizedBox(height: 30),
 
             Obx(
-              () => OnboardingButton(
+                  () => OnboardingButton(
+                // الميكس والظل هيكونوا جوه الـ OnboardingButton نفسه (هعدلهولك تحت)
                 isLast: controller.currentIndex.value == pages.length - 1,
                 onPressed: () {
-                  if (controller.currentIndex.value == pages.length - 1) {
-                    Get.offNamed(AppRoutes.roleSelection);
-                  } else {
-                    controller.nextPage();
-                  }
+                  // نادي على nextPage وهي هتعرف لوحدها تقلب ولا تفتح الـ Login
+                  controller.nextPage();
                 },
               ),
             ),
-
             const SizedBox(height: 40),
           ],
         ),

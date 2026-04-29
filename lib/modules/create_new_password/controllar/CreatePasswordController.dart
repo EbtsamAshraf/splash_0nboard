@@ -60,3 +60,10 @@ class CreatePasswordController extends GetxController {
     super.onClose();
   }
 }
+
+class CreatePasswordBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut<CreatePasswordController>(() => CreatePasswordController());
+  }
+}

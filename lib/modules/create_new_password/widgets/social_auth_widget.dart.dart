@@ -18,7 +18,11 @@ class SocialAuthWidget extends StatelessWidget {
       children: [
         _buildDivider(),
         const SizedBox(height: 24),
-        _buildSocialButton("Continue with Google", Icons.g_mobiledata, onGoogleTap),
+        _buildSocialButton(
+          "Continue with Google",
+          Icons.g_mobiledata,
+          onGoogleTap,
+        ),
         const SizedBox(height: 16),
         _buildSocialButton("Continue with Apple", Icons.apple, onAppleTap),
         const SizedBox(height: 24),
@@ -48,7 +52,9 @@ class SocialAuthWidget extends StatelessWidget {
       height: 56,
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           side: const BorderSide(color: Colors.black12),
         ),
         onPressed: onTap,
@@ -57,7 +63,13 @@ class SocialAuthWidget extends StatelessWidget {
           children: [
             Icon(icon, size: 30, color: Colors.black),
             const SizedBox(width: 12),
-            Text(text, style: const TextStyle(color: Color(0xff0a0e1e), fontWeight: FontWeight.w600)),
+            Text(
+              text,
+              style: const TextStyle(
+                color: Color(0xff0a0e1e),
+                fontWeight: FontWeight.w600,
+              ),
+            ),
           ],
         ),
       ),
@@ -68,10 +80,19 @@ class SocialAuthWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Already have an account? ", style: TextStyle(color: Colors.grey)),
+        const Text(
+          "Already have an account? ",
+          style: TextStyle(color: Colors.grey),
+        ),
         TextButton(
           onPressed: onLoginTap,
-          child: const Text("Login", style: TextStyle(color: Color(0xff3b6ef5), fontWeight: FontWeight.bold)),
+          child: const Text(
+            "Login",
+            style: TextStyle(
+              color: Color(0xff3b6ef5),
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
       ],
     );
@@ -89,8 +110,14 @@ class SocialAuthWidget extends StatelessWidget {
         children: [
           Icon(Icons.verified_user_outlined, size: 16, color: Colors.green),
           SizedBox(width: 8),
-          Text("VERIFIED MEDICAL PLATFORM",
-              style: TextStyle(color: Color(0xff3b6ef5), fontSize: 10, fontWeight: FontWeight.bold)),
+          Text(
+            "VERIFIED MEDICAL PLATFORM",
+            style: TextStyle(
+              color: Color(0xff3b6ef5),
+              fontSize: 10,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ],
       ),
     );

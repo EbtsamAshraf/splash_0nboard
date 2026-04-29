@@ -3,10 +3,8 @@ import 'package:get/get.dart';
 import '../../../core/route/app_route.dart';
 import '../../../core/them/app_colors.dart';
 import '../controllar/login_controllar.dart';
-import '../widgets/widgets_login/email_faild.dart';
 import '../widgets/widgets_login/google_button.dart';
-import '../widgets/widgets_login/login_header.dart';
-import '../widgets/widgets_login/password_field.dart';
+import '../widgets/widgets_login/login_form.dart';
 
 class LoginPage extends StatelessWidget {
   final controller = Get.put(LoginController());
@@ -24,12 +22,12 @@ class LoginPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(24),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
                     "Welcome Back",
                     style: TextStyle(
-                      color: AppColor.fontColor,
+                      color: AppColor.greenDark,
                       fontSize: 28,
                       fontWeight: FontWeight.bold,
                     ),
@@ -39,7 +37,7 @@ class LoginPage extends StatelessWidget {
 
                   Text(
                     "Login to your professional portal",
-                    style: TextStyle(color: AppColor.greyColor, fontSize: 20),
+                    style: TextStyle(color: AppColor.greyColor, fontSize: 18),
                   ),
 
                   SizedBox(height: 30),
@@ -62,7 +60,7 @@ class LoginPage extends StatelessWidget {
                         "Forgot Password?",
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: AppColor.blueColor,
+                          color: AppColor.greenDark,
                         ),
                       ),
                     ),
@@ -76,7 +74,7 @@ class LoginPage extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: controller.login,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColor.blueColor,
+                        backgroundColor: AppColor.green,
                         shape: StadiumBorder(),
                       ),
                       child: Row(
@@ -90,7 +88,7 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                           SizedBox(width: 6),
-                          Icon(Icons.arrow_forward),
+                          Icon(Icons.arrow_forward, color: AppColor.whitColor),
                         ],
                       ),
                     ),
@@ -111,13 +109,11 @@ class LoginPage extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          // انتقلي للمسار بتاع صفحة الـ Register
-                          // تأكدي إنك معرفة '/register' في ملف app_route.dart
                           Get.toNamed(AppRoutes.register);                        },
                         child: const Text(
                           "Sign Up",
                           style: TextStyle(
-                            color: Colors.blue,
+                            color: AppColor.greenLight,
                             fontWeight: FontWeight.bold,
                           ),
                         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../core/them/app_colors.dart';
 
 class SuccessPasswordView extends StatelessWidget {
@@ -15,7 +14,7 @@ class SuccessPasswordView extends StatelessWidget {
         elevation: 0,
         actions: [
           IconButton(
-            icon: Icon(Icons.close, color: AppColor.blackColor),
+            icon: const Icon(Icons.close, color: AppColor.blackColor),
             onPressed: () => Get.back(),
           ),
         ],
@@ -23,19 +22,22 @@ class SuccessPasswordView extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Spacer(),
-            Image.asset('assets/image/Hero Container.png'),
+
+            Image.asset(
+              'assets/image/Hero Container.png',
+              height: 250,
+            ),
 
             const SizedBox(height: 40),
 
             const Text(
               "All Set!",
               style: TextStyle(
-                fontSize: 26,
+                fontSize: 28,
                 fontWeight: FontWeight.bold,
-                color: AppColor.fontColor,
+                color: Color(0xff1A2530),
               ),
             ),
             const SizedBox(height: 16),
@@ -43,59 +45,28 @@ class SuccessPasswordView extends StatelessWidget {
               "Your password has been successfully updated. Your account is now secure and ready to use.",
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: AppColor.greyColor,
-                fontSize: 18,
+                color: AppColor.font,
+                fontSize: 20,
                 height: 1.5,
               ),
             ),
 
             const Spacer(),
 
-            // 3. زر العودة لتسجيل الدخول
+            // زر العودة لتسجيل الدخول بالتدرج اللوني
             _buildActionButton(),
+
             const SizedBox(height: 20),
 
-            // 4. رابط المساعدة
+            // رابط المساعدة
             TextButton(
               onPressed: () {},
               child: const Text(
                 "Need help? Contact support",
-                style: TextStyle(
-                  color: AppColor.blueColor,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: TextStyle(color: AppColor.textgreen, fontSize: 16),
               ),
             ),
             const SizedBox(height: 20),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSuccessIllustration() {
-    return Center(
-      child: Container(
-        height: 200,
-        width: 200,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          color: Colors.blue.shade50.withOpacity(0.5),
-        ),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            // ظل دائري خلف الأيقونة
-            Container(
-              height: 140,
-              width: 140,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: const Color(0xff3b6ef5).withOpacity(0.1),
-              ),
-            ),
-            // أيقونة الصح الزرقاء (أو حطي الصورة اللي في الديزاين)
-            const Icon(Icons.check_circle, size: 100, color: Color(0xff3b6ef5)),
           ],
         ),
       ),
@@ -103,25 +74,40 @@ class SuccessPasswordView extends StatelessWidget {
   }
 
   Widget _buildActionButton() {
-    return SizedBox(
+    return Container(
       width: double.infinity,
       height: 56,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        gradient: const LinearGradient(
+          colors: [AppColor.greenDark, AppColor.greenLight, AppColor.beige],
+          begin: Alignment.centerLeft,
+          end: Alignment.centerRight,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: AppColor.greenDark.withOpacity(0.2),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xff3b6ef5),
+          backgroundColor: Colors.transparent,
+          shadowColor: Colors.transparent,
+          elevation: 0,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          elevation: 0,
         ),
-        onPressed: () =>
-            Get.offAllNamed('/login'), // يرجع للوجن ويمسح كل اللي فات
+        onPressed: () => Get.offAllNamed('/login'),
         child: const Text(
           "Back to Login",
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: AppColor.whitColor,
           ),
         ),
       ),
